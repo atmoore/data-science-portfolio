@@ -1,0 +1,116 @@
+/* Category filters styling */
+.project-filters-container {
+  background-color: var(--primary-light);
+  border-radius: 4px;
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.category-filter {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--gray-300);
+  border-radius: 3px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out; /* Faster transition */
+  border: 1px solid transparent;
+  margin-bottom: 0.5rem;
+}
+
+.category-filter:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--gray-100);
+}
+
+.category-filter.active {
+  background-color: var(--accent);
+  color: white;
+}
+
+
+/* Animation for filtering - FASTER */
+.project-card {
+  transition: opacity 0.2s ease-out; /* Faster transition */
+}
+
+.project-card.hidden-card {
+  opacity: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Counter for filtered projects */
+.filter-counter {
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-size: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--gray-400);
+  border-radius: 10px;
+  padding: 0.1rem 0.5rem;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 640px) {
+  .category-filter {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.7rem;
+    margin-bottom: 0.3rem;
+    margin-right: 0.3rem;
+  }
+  
+  .project-filters-container {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .project-filters-container::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
+  }
+  
+  .project-filters-container .flex {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    width: max-content;
+    padding-bottom: 5px;
+  }
+  
+  .filter-counter {
+    font-size: 0.65rem;
+    padding: 0 0.3rem;
+  }
+}
+
+/* Improved filters container for better spacing with many categories */
+@media (min-width: 768px) {
+  .project-filters-container .flex {
+    gap: 0.5rem 0.75rem;
+  }
+}
+
+/* Focus state for accessibility */
+.category-filter:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Hover effect for better interactivity */
+.category-filter:not(.active):hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Active state with subtle shadow */
+.category-filter.active {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

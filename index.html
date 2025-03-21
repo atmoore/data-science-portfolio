@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Professional portfolio of Austin Moore, a data analyst showcasing expertise in data science, analysis, and insights.">
+  <title>Austin Moore | Portfolio</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="timeline.css">
+  <link rel="stylesheet" href="category-filter.css">
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Inter font from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-black text-white font-sans antialiased">
+  <!-- Navigation (accessible) -->
+  <nav class="sticky top-0 bg-black z-50">
+    <div class="container mx-auto px-6 py-5 flex justify-between items-center">
+      <a href="#" class="text-xl font-semibold text-white">AUSTIN <span class="text-accent">MOORE</span></a>
+      <div class="hidden md:flex space-x-8">
+        <a href="#projects" class="text-gray-400 hover:text-white transition-colors font-medium text-sm uppercase tracking-wide">Projects</a>
+        <a href="#about" class="text-gray-400 hover:text-white transition-colors font-medium text-sm uppercase tracking-wide">About</a>
+        <a href="#contact" class="text-gray-400 hover:text-white transition-colors font-medium text-sm uppercase tracking-wide">Contact</a>
+      </div>
+      <button id="mobile-menu-button" class="md:hidden text-gray-400 focus:outline-none" aria-label="Toggle menu" aria-expanded="false">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-black absolute w-full" aria-hidden="true">
+      <div class="container mx-auto px-6 py-6 flex flex-col space-y-6">
+        <a href="#projects" class="text-gray-400 hover:text-white transition-colors font-medium text-sm uppercase tracking-wide">Projects</a>
+        <a href="#about" class="text-gray-400 hover:text-white transition-colors font-medium text-sm uppercase tracking-wide">About</a>
+        <a href="#contact" class="text-gray-400 hover:text-white transition-colors font-medium text-sm uppercase tracking-wide">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Data Visualization -->
+  <section id="hero" class="relative flex items-center bg-black py-4 pb-0" style="min-height: 65vh;">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-between">
+      <div class="text-center mb-2">
+        <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-2 text-white tracking-tight">
+          Leader. Innovator. <span class="text-accent"> Analyst.</span>
+        </h1>
+        <p class="text-lg md:text-xl text-gray-400 mb-3 max-w-2xl mx-auto font-light">
+            I bring a unique perspective to marketing science that bridges the gap between data and results. 
+            I transform complex datasets into actionable insights, then apply the technical expertise 
+            to bring those solutions to life.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="#contact" class="btn-primary inline-block text-lg px-8 py-3 mt-2">LET'S CHAT</a>
+          <a href="#projects" class="btn-primary inline-block text-lg px-8 py-3 mt-2">VIEW MY WORK</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-6 pt-2 bg-primary">
+    <div class="container mx-auto px-6">
+      <h2 class="section-title mb-0">Projects</h2>
+
+      <!-- Experience Timeline Section -->
+      <div class="w-full mb-0">
+        <h3 class="projects-title mb-6">Experience Timeline</h3>
+        <div class="px-4 py-0">
+          <!-- Timeline Container -->
+          <div class="timeline-container">
+            <!-- Timeline Bar -->
+            <div class="timeline-bar"></div>
+            <!-- Year Markers -->
+            <div class="timeline-year-markers">
+              <div class="year-marker" data-year="2021"></div>
+              <div class="year-marker" data-year="2022"></div>
+              <div class="year-marker" data-year="2023"></div>
+              <div class="year-marker" data-year="2024"></div>
+              <div class="year-marker" data-year="2025"></div>
+            </div>
+            <!-- Colored timeline segments - on top of the main bar -->
+            <div style="position: absolute; height: 3px; background-color: #e11d48; top: 37px; left: 0; width: 7%; z-index: 2;"></div>
+            <div style="position: absolute; height: 3px; background-color: #f97316; top: 37px; left: 18%; width: 82%; z-index: 2;"></div>
+            <!-- Timeline Markers -->
+            <div class="timeline-markers">
+              <!-- UW-Madison Marker -->
+              <div class="timeline-marker" data-period="uw-madison">
+                <div class="marker-dot" style="background-color: var(--accent);"></div>
+                <div class="marker-label text-white">UW-Madison</div>
+                <div class="marker-duration">Graduated<br>May 2021</div>
+              </div>
+              <!-- Critical Mass Marker -->
+              <div class="timeline-marker" data-period="critical-mass">
+                <div class="marker-dot" style="background-color: #f97316;"></div>
+                <div class="marker-label text-white">Critical Mass</div>
+                <div class="marker-duration" id="cm-duration">Sep 2021-Present</div>
+              </div>
+              <!-- Hidden Year End Marker for CSS targeting -->
+              <div style="display:none">2025</div>
+            </div>
+            <!-- Timeline Legend -->
+            <div class="timeline-legend">
+              <div class="legend-item">
+                <span class="legend-color" style="background-color: #e11d48;"></span>
+                <span class="legend-text">UW-Madison (Graduated May 2021)</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color" style="background-color: #f97316;"></span>
+                <span class="legend-text">Critical Mass (Sep 2021-Present)</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project Details Container -->
+          <div id="project-details" class="project-details-container opacity-0 mt-0">
+            <div class="flex justify-between items-start mb-2">
+              <h3 id="project-title" class="text-xl font-bold text-white"></h3>
+              <span id="project-date" class="text-accent"></span>
+            </div>
+            <p id="project-description" class="text-gray-300 mb-2 text-sm"></p>
+            <div id="project-impact" class="text-white mb-2 text-sm"></div>
+            <div id="project-tech" class="flex flex-wrap gap-1 mb-2"></div>
+            
+            <!-- Project Navigation -->
+            <div class="project-navigation mt-2 border-t border-gray-800 pt-2">
+              <div class="flex justify-between items-center">
+                <div class="project-nav-controls" id="uw-madison-controls">
+                  <button class="project-nav-btn" data-org="uw-madison" data-direction="prev">
+                    <i class="fas fa-chevron-left"></i>
+                  </button>
+                  <span id="uw-madison-counter" class="project-counter mx-2">1/3</span>
+                  <button class="project-nav-btn" data-org="uw-madison" data-direction="next">
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                </div>
+                
+                <div class="project-nav-controls" id="critical-mass-controls" style="display: none;">
+                  <button class="project-nav-btn" data-org="critical-mass" data-direction="prev">
+                    <i class="fas fa-chevron-left"></i>
+                  </button>
+                  <span id="critical-mass-counter" class="project-counter mx-2">1/3</span>
+                  <button class="project-nav-btn" data-org="critical-mass" data-direction="next">
+                    <i class="fas fa-chevron-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Critical Mass Projects Row (Professional Work) -->
+      <div class="projects-row" style="margin-top: 0;" id="critical-mass-projects">
+        <h3 class="projects-title mb-6">Critical Mass Projects (2021-Present)</h3>
+        
+        <!-- Category Filter Bar -->
+        <div class="project-filters-container mt-1 mb-2">
+          <h4 class="text-gray-200 mb-1 text-xs uppercase tracking-wide">Filter by category:</h4>
+          <div class="flex flex-wrap gap-2">
+            <button class="category-filter active" data-category="all">All</button>
+            <button class="category-filter" data-category="data-science">Data Science</button>
+            <button class="category-filter" data-category="data-storytelling">Data Storytelling</button>
+            <button class="category-filter" data-category="tagging">Tagging</button>
+            <button class="category-filter" data-category="data-visualization">Data Visualization</button>
+            <button class="category-filter" data-category="strategy">Strategy</button>
+            <button class="category-filter" data-category="business">Business Recommendations</button>
+          </div>
+        </div>
+        
+        <!-- Client Filter Bar -->
+        <div class="project-filters-container mt-3 mb-2">
+          <h4 class="text-gray-200 mb-1 text-xs uppercase tracking-wide">Filter by client:</h4>
+          <div class="flex flex-wrap gap-2">
+            <button class="category-filter active" data-category="all-accounts">All</button>
+            <button class="category-filter" data-category="army">ARMY</button>
+            <button class="category-filter" data-category="nissan">Nissan</button>
+            <button class="category-filter" data-category="infiniti">Infiniti</button>
+            <button class="category-filter" data-category="new-business">New Business</button>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Project 1 -->
+          <div class="project-card" data-categories="data-science,data-visualization,strategy,business" data-accounts="infiniti">
+            <div class="project-image bg-gradient-to-r from-blue-600 to-indigo-800 h-40 flex items-center justify-center">
+              <i class="fas fa-chart-line text-5xl text-white opacity-80"></i>
+            </div>
+            <div class="project-content">
+              <h4 class="project-title">Forecasting Model</h4>
+              <p class="project-desc">
+                Developed two predictive regression models in Python for Infiniti, leveraging historical media spend, seasonality, and site trends.
+              </p>
+              <div class="flex flex-wrap">
+                <span class="tech-tag">Forecasting</span>
+                <span class="tech-tag">R</span>
+                <span class="tech-tag">Data Exploration</span>
+                <span class="tech-tag">Modeling</span>
+                <span class="tech-tag">AWS</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project 2 -->
+          <div class="project-card" data-categories="data-science,analytics,strategy" data-accounts="nissan">
+            <div class="project-image bg-gradient-to-r from-purple-600 to-pink-600 h-40 flex items-center justify-center">
+              <i class="fas fa-layer-group text-5xl text-white opacity-80"></i>
+            </div>
+            <div class="project-content">
+              <h4 class="project-title">Clustering Project</h4>
+              <p class="project-desc">
+                Enhanced Nissan user experience by implementing k-means clustering algorithms to personalize vehicle layout pages based on visitor intent.
+              </p>
+              <div class="flex flex-wrap">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">K-Means</span>
+                <span class="tech-tag">AWS</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project 3 -->
+          <div class="project-card" data-categories="data-storytelling,analytics,strategy,business" data-accounts="army,nissan">
+            <div class="project-image bg-gradient-to-r from-red-600 to-yellow-600 h-40 flex items-center justify-center">
+              <i class="fas fa-tachometer-alt text-5xl text-white opacity-80"></i>
+            </div>
+            <div class="project-content">
+              <h4 class="project-title">Strategic Site Enhancements</h4>
+              <p class="project-desc">
+                Leading the initiative to make enhancements to the site based on comparative analysis of previous and current site performance to help achieve goals.
+              </p>
+              <div class="flex flex-wrap">
+                <span class="tech-tag">Data Storytelling</span>
+                <span class="tech-tag">Business Recommendations</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project 4 -->
+          <div class="project-card" data-categories="measurement,data-storytelling,strategy,data-collection" data-accounts="army">
+            <div class="project-image bg-gradient-to-r from-green-600 to-teal-600 h-40 flex items-center justify-center">
+              <i class="fas fa-sitemap text-5xl text-white opacity-80"></i>
+            </div>
+            <div class="project-content">
+              <h4 class="project-title">New Subdomain Launch</h4>
+              <p class="project-desc">
+                Created a measurement strategy for a new subdomain thoroughly explaining how we are going to measure site success.
+              </p>
+              <div class="flex flex-wrap">
+                <span class="tech-tag">Measurement Strategy</span>
+                <span class="tech-tag">Data Storytelling</span>
+                <span class="tech-tag">Data Visualization</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project 5 -->
+          <div class="project-card" data-categories="data-storytelling,measurement,reporting,data-visualization,analytics,business" data-accounts="nissan,infiniti">
+            <div class="project-image bg-gradient-to-r from-yellow-500 to-orange-600 h-40 flex items-center justify-center">
+              <i class="fas fa-file-invoice text-5xl text-white opacity-80"></i>
+            </div>
+            <div class="project-content">
+              <h4 class="project-title">Quarterly Business Report Lead</h4>
+              <p class="project-desc">
+                Executed the creation of a new product-level report detailing key marketing initiatives, site changes with the launch of the new website, and implementing robust tracking in Adobe Analytics to track new categories.
+              </p>
+              <div class="flex flex-wrap">
+                <span class="tech-tag">Data Storytelling</span>
+                <span class="tech-tag">Adobe Analytics</span>
+                <span class="tech-tag">Data Visualization</span>
+                <span class="tech-tag">Business Recommendations</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project 6 -->
+          <div class="project-card" data-categories="data-storytelling,data-visualization" data-accounts="army">
+            <div class="project-image bg-gradient-to-r from-pink-500 to-rose-600 h-40 flex items-center justify-center">
+              <i class="fas fa-language text-5xl text-white opacity-80"></i>
+            </div>
+            <div class="project-content">
+              <h4 class="project-title">Spanish Reporting Lead</h4>
+              <p class="project-desc">
+                Led comprehensive reporting initiatives for the Spanish site, analyzing the impact of new marketing campaigns and content modifications on performance metrics. 
+              </p>
+              <div class="flex flex-wrap">
+                <span class="tech-tag">Data Storytelling</span>
+                <span class="tech-tag">Adobe Analytics</span>
+                <span class="tech-tag">Data Visualization</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 7 -->
+          <div class="project-card" data-categories="data-storytelling,data-visualization" data-accounts="army,infiniti">
+            <div class="project-image bg-gradient-to-r from-pink-500 to-rose-600 h-40 flex items-center justify-center">
+              <i class="fas fa-chart-bar text-5xl text-white opacity-80"></i>
+            </div>
+            <div class="project-content">
+              <h4 class="project-title">Campaign Reporting Lead</h4>
+              <p class="project-desc">
+                Analyzed the performance and impact of major media campaigns for site KPIs. Delivered data-driven insights that quantified campaign effectiveness.
+              </p>
+              <div class="flex flex-wrap">
+                <span class="tech-tag">Data Storytelling</span>
+                <span class="tech-tag">Adobe Analytics</span>
+                <span class="tech-tag">Data Visualization</span>
+              </div>
+            </div>
+          </div>
+
+          
+          <!-- Project 8 -->
+          <div class="project-card" data-categories="data-storytelling,data-visualization,business" data-accounts="new-business">
+            <div class="project-image bg-gradient-to-r from-blue-500 to-cyan-500 h-40 flex items-center justify-center">
+              <i class="fas fa-rocket text-5xl text-white opacity-80"></i>
+            </div>
+            <div class="project-content">
+              <h4 class="project-title">Catalyst Team</h4>
+              <h5>New Business Pitch Decks</h5>
+              <p class="project-desc">
+                Developed compelling data-driven presentations to demonstrate our analytics capabilities for new business pitches, helping to secure major client accounts.
+              </p>
+              <div class="flex flex-wrap">
+                <span class="tech-tag">Data Storytelling</span>
+                <span class="tech-tag">Tableau</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Project 9 -->
+          <div class="project-card" data-categories="tagging" data-accounts="army,nissan,infiniti">
+            <div class="project-image bg-gradient-to-r from-violet-600 to-indigo-600 h-40 flex items-center justify-center">
+              <i class="fas fa-tags text-5xl text-white opacity-80"></i>
+            </div>
+            <div class="project-content">
+              <h4 class="project-title">Component Tagging</h4>
+              <p class="project-desc">
+                Implemented first and third-party tracking in Tealium and Google Tag Manager ensuring accurate data collection on the site.
+              </p>
+              <div class="flex flex-wrap">
+                <span class="tech-tag">Tealium</span>
+                <span class="tech-tag">GTM</span>
+                <span class="tech-tag">Data Collection</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about" class="py-10 bg-primary-dark">
+    <div class="container mx-auto px-6">
+      <h2 class="section-title">About Me</h2>
+      <div class="flex flex-col md:flex-row items-start">
+        <div class="md:w-1/3 mb-8 md:mb-0 md:pt-4">
+          <div class="rounded-sm overflow-hidden w-64 h-64 mx-auto shadow-xl hover:transform hover:scale-105 transition-all duration-300">
+            <img src="images/austin-pro.jpg" alt="Austin Moore professional portrait" class="w-full h-full object-cover">
+          </div>
+        </div>
+        <div class="md:w-2/3 md:pl-12">
+          <p class="text-lg mb-4 text-gray-200 font-light">
+            With over 4 years of expertise in data science and analytics, I transform complex datasets into powerful, actionable insights that consistently drive strategic business decisions and measurable outcomes.
+          </p>
+          <p class="text-lg mb-4 text-gray-200 font-light">
+            My forecasting and clustering models have created lasting value for major clients — these solutions continue to guide critical business strategies long after my direct involvement ended.
+          </p>
+          <p class="text-lg mb-4 text-gray-200 font-light">
+            At Army, I've spearheaded multiple high-visibility reporting initiatives and established myself as the trusted authority for strategic site optimizations that directly impact conversion metrics and user engagement.
+          </p>
+          <p class="text-lg mb-6 text-gray-200 font-light">
+            I thrive at the intersection of creative innovation and strategic execution, consistently pushing boundaries while surpassing expectations for both internal stakeholders and client partners. My approach combines analytical precision with business acumen to deliver solutions that create lasting value.
+          </p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+            <div class="skill-badge">
+              <i class="fas fa-chart-line"></i>
+              <span>Data Analysis</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-brain"></i>
+              <span>Machine Learning</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-database"></i>
+              <span>SQL & NoSQL</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-chart-bar"></i>
+              <span>Data Visualization</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-chart-area"></i>
+              <span>Forecasting</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-layer-group"></i>
+              <span>Clustering</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-cloud"></i>
+              <span>Cloud Platforms</span>
+            </div>
+            <div class="skill-badge">
+              <i class="fas fa-code"></i>
+              <span>Python, R, Java, & C++</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section id="contact" class="py-10 bg-primary-dark">
+    <div class="container mx-auto px-6">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="max-w-xl mx-auto mt-8">
+        <form id="contact-form" class="space-y-4" action="https://formspree.io/f/mkgjowrk" method="POST">
+          <div class="form-group">
+            <label for="name" class="form-label text-gray-300">Name</label>
+            <input type="text" id="name" name="name" required class="form-input bg-gray-800 border-gray-700 text-white" 
+                   aria-describedby="name-error">
+            <div id="name-error" class="form-error hidden">Please enter your name</div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label text-gray-300">Email</label>
+            <input type="email" id="email" name="email" required class="form-input bg-gray-800 border-gray-700 text-white"
+                   aria-describedby="email-error">
+            <div id="email-error" class="form-error hidden">Please enter a valid email address</div>
+          </div>
+          <div class="form-group">
+            <label for="notes" class="form-label text-gray-300">Message</label>
+            <textarea id="notes" name="message" rows="4" required class="form-input bg-gray-800 border-gray-700 text-white"
+                     aria-describedby="notes-error"></textarea>
+            <div id="notes-error" class="form-error hidden">Please enter your message</div>
+          </div>
+          <button type="submit" class="btn-primary w-full">LET'S CHAT</button>
+        </form>
+        <div id="form-success" class="hidden mt-4 p-3 bg-accent bg-opacity-20 text-accent rounded-sm text-center">
+          Thank you for your message! I'll get back to you soon.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white py-6">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <a href="#" class="text-xl font-semibold">AUSTIN <span class="text-accent">MOORE</span></a>
+          <p class="mt-1 text-gray-500 text-sm">Data Science Portfolio</p>
+        </div>
+        <div class="flex space-x-6">
+          <a href="https://linkedin.com/in/austinmoore19" aria-label="LinkedIn Profile" class="text-gray-500 hover:text-accent transition-colors">
+            <i class="fab fa-linkedin text-xl"></i>
+          </a>
+          <a href="https://github.com/atmoore" aria-label="GitHub Profile" class="text-gray-500 hover:text-accent transition-colors">
+            <i class="fab fa-github text-xl"></i>
+          </a>
+        </div>
+      </div>
+      <div class="mt-4 pt-4 border-t border-gray-900 text-center text-gray-600 text-xs">
+        <p>&copy; 2025 Austin Moore. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/formspree-core@latest/dist/formspree-core.min.js"></script>
+  <script src="script.js"></script>
+  <script src="timeline.js"></script>
+  <script src="category-filter.js"></script>
+</body>
+</html>

@@ -1,0 +1,545 @@
+/* Custom styles to complement Tailwind CSS */
+:root {
+  /* Netflix-inspired color palette */
+  --primary: #141414;
+  --primary-dark: #000000;
+  --primary-light: #181818;
+  --accent: #e50914;
+  --accent-light: #f40612;
+  --accent-dark: #b81d24;
+  --secondary: #ffffff;
+  --success: #46d369;
+  --error: #e50914;
+  --gray-50: #f5f5f1;
+  --gray-100: #e5e5e5;
+  --gray-200: #b3b3b3;
+  --gray-300: #999999;
+  --gray-400: #737373;
+  --gray-500: #666666;
+  --gray-600: #515151;
+  --gray-700: #333333;
+  --gray-800: #222222;
+  --gray-900: #121212;
+  --transition-speed: 0.3s;
+}
+
+/* Typography */
+body {
+  line-height: 1.6;
+  background-color: var(--primary);
+  color: var(--secondary);
+  font-family: 'Netflix Sans', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Accessibility focus styles */
+*:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Skip to content link for screen readers */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 1em;
+  z-index: 999;
+  background: var(--accent);
+  color: white;
+  padding: 0.5em 1em;
+  transition: transform var(--transition-speed);
+}
+
+.skip-to-content:focus {
+  left: 1em;
+  transform: translateY(0);
+}
+
+/* Section title styling */
+.section-title {
+  position: relative;
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: left;
+  margin-bottom: 1rem;
+  color: var(--secondary);
+  letter-spacing: -0.025em;
+  padding-left: 0.5rem;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 100%;
+  background: var(--accent);
+  left: 0;
+  border-radius: 2px;
+}
+
+/* Button styles */
+.btn-primary {
+  display: inline-block;
+  background-color: var(--accent);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 0.25rem;
+  transition: all var(--transition-speed);
+  text-align: center;
+  min-height: 48px;
+  min-width: 48px;
+  border: none;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-light);
+  transform: scale(1.05);
+}
+
+.btn-secondary {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--secondary);
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: 0.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all var(--transition-speed);
+  text-align: center;
+  min-height: 48px;
+  min-width: 48px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-white {
+  display: inline-block;
+  background-color: white;
+  color: var(--primary);
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 0.25rem;
+  transition: all var(--transition-speed);
+  text-align: center;
+  min-height: 48px;
+  min-width: 48px;
+  border: none;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.btn-white:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: scale(1.05);
+}
+
+/* Form styling */
+.form-group {
+  position: relative;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--gray-300);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-input {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--gray-700);
+  border-radius: 0.25rem;
+  background-color: var(--primary-light);
+  color: var(--gray-200);
+  transition: all var(--transition-speed);
+  min-height: 48px;
+}
+
+.form-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.2);
+  outline: none;
+}
+
+.form-input::placeholder {
+  color: var(--gray-500);
+}
+
+.form-error {
+  color: var(--accent);
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+/* Projects Section - Netflix style */
+.projects-row {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.projects-title {
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--secondary);
+}
+
+.projects-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  gap: 1rem;
+  padding: 1rem 0;
+  position: relative;
+}
+
+.projects-slider::-webkit-scrollbar {
+  display: none; /* Chrome/Safari/Opera */
+}
+
+/* Project card styling - Netflix style */
+.project-card {
+  background-color: var(--primary-light);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: all var(--transition-speed);
+  position: relative;
+  flex: 0 0 auto;
+  width: 300px;
+  margin-right: 0.5rem;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+  z-index: 10;
+}
+
+.project-card:hover .project-image {
+  filter: brightness(1.1);
+}
+
+.project-card:hover .project-view-more {
+  opacity: 1;
+}
+
+.project-image {
+  height: 170px;
+  overflow: hidden;
+  transition: all var(--transition-speed);
+  position: relative;
+}
+
+.project-content {
+  padding: 1rem;
+}
+
+.project-title {
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.project-desc {
+  font-size: 0.875rem;
+  color: var(--gray-300);
+  margin-bottom: 1rem;
+  /* Remove truncation styles */
+  display: block;
+  -webkit-line-clamp: unset;
+  -webkit-box-orient: unset;
+  overflow: visible;
+  height: auto;
+  /* Add a bit of spacing between paragraphs */
+  line-height: 1.5;
+}
+
+.tech-tag {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--gray-100);
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.15rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  transition: all var(--transition-speed);
+}
+
+.tech-tag:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.project-view-more {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-speed);
+}
+
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: all var(--transition-speed);
+}
+
+.slider-arrow:hover {
+  background-color: rgba(229, 9, 20, 0.8);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.slider-arrow.prev {
+  left: -25px;
+}
+
+.slider-arrow.next {
+  right: -25px;
+}
+
+.project-details {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--gray-300);
+}
+
+/* Skill badges - Netflix UI style */
+.skill-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  background-color: var(--primary-light);
+  border-radius: 0.25rem;
+  transition: all var(--transition-speed);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.skill-badge:hover {
+  transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+.skill-badge i {
+  color: var(--accent);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.skill-badge span {
+  font-weight: 500;
+  color: var(--gray-100);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.8rem;
+}
+
+/* Chart styling */
+.chart-container {
+  height: 400px;
+  background-color: var(--primary-light);
+  border-radius: 0.25rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  padding: 1.5rem;
+  transition: all var(--transition-speed);
+}
+
+.chart-container:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+.chart-legend {
+  display: flex;
+  justify-content: center;
+  padding: 0.75rem 0;
+  color: var(--gray-200);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .projects-title {
+    font-size: 1.1rem;
+  }
+  
+  .chart-container {
+    height: 300px;
+  }
+  
+  .project-card {
+    width: 100%;
+    margin-right: 0;
+  }
+  
+  .project-desc {
+    font-size: 0.8rem;
+  }
+  
+  .tech-tag {
+    font-size: 0.65rem;
+    padding: 0.15rem 0.5rem;
+    margin-right: 0.4rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .skill-badge {
+    padding: 1rem 0.75rem;
+  }
+  
+  .skill-badge i {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .skill-badge span {
+    font-size: 0.7rem;
+  }
+  
+  /* Compact timeline for mobile */
+  .timeline-container {
+    padding: 0.5rem 0;
+  }
+  
+  .timeline-markers {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .timeline-marker {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Adjust padding for smaller screens */
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  
+  /* Reduce vertical spacing on mobile */
+  .py-6 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+}
+
+.animated {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .animated {
+    animation: none;
+    transform: none;
+  }
+}
+
+/* Accessibility helper classes */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* High contrast mode adjustments */
+@media (forced-colors: active) {
+  .btn-primary,
+  .btn-secondary,
+  .btn-white {
+    border: 2px solid currentColor;
+  }
+  
+  .chart-control-btn.active {
+    border: 2px solid currentColor;
+  }
+}
